@@ -20,6 +20,8 @@ namespace Logging.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             _logger.LogInformation("GetWeatherForecast API Called");
+            _logger.LogError("GetWeatherForecast API Called Error Called");
+            _logger.LogDebug("GetWeatherForecast API Called");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

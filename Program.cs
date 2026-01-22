@@ -1,6 +1,16 @@
+using NLog;
+using NLog.Web;
+
+//var logger = LogManager.Setup()
+//    .LoadConfigurationFromAppSettings()
+//    .GetCurrentClassLogger();
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.// Remove default loggers
+builder.Logging.ClearProviders();
+
+// Use NLog
+builder.Host.UseNLog();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
